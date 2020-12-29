@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+</head>
+
+<body>
+<div id="app">
+    <input type="text" v-model="msg">
+    <p>Hello  {{msg}}</p>
+ 
+    <p>
+        <!--1.指令一: msg转为大写字母 -->
+        <h2>{{msg.toUpperCase()}}</h2>
+
+        <!-- 2.指令二:强制数据绑定 -->
+        <a href="url">去学习(无效)</a><br>
+        <a v-bind:href="url">去学习（v-bind:）</a><br>
+        <a :href="url">去学习(:)</a><br>
+
+        <!--3.指令三: 绑定事件监听-->
+        <button v-on:click="test">test1</button>
+        <button @click="test">test1</button>
+        <!-- 监视/监听：回调函数 -->
+    </p>
+</div> 
+
+
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>-->
+
+<script src="../js/vue.js"></script>
+<script>
+
+new Vue({
+    el: '#app',
+    data:{
+        msg:'I will back!',
+        url:'http://www.atguigu.com'
+    },
+    methods: {
+        test(event){
+            alert(event.target.innerText)
+        }
+    },
+})//.$mount('#test')
+/*
+1.表达式不是一个完整的结构，需要与其他结构配合才能正常存在，而语句可以独立存在
+2.表达式返回一个数据结构，语句不会返回一个结果（是去做一个特定工作的）
+
+*/
+</script>
+
+</body>
+</html>
